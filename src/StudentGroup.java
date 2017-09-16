@@ -180,8 +180,8 @@ public class StudentGroup implements StudentArrayOperation {
 		Date dd=null;
 		Double dou=0.0;
 		int n=this.students.length;
-		for(int i=0;i<n-1;i++)
-			for(int j=0;j<n-i-1;j++)
+		for(int i=0;i<n;i++)
+			for(int j=0;j<n-i;j++)
 				if(((this.students[j]).compareTo(this.students[j+1]))>0)
 				{
                                   Student student= new Student(a,aa,dd,dou);
@@ -197,23 +197,38 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		/*int n=this.students.length;
-		for(int i=0;i<n-1;i++){
+		Student[] st=new Student[this.students.length];
+		int count=0;
+		int n=this.students.length;
+		for(int i=0;i<n;i++){
 			
-			if(this.students[i].birthDate==date){
+			if(this.students[i].getBirthDate()==date){
 				
-				return students[i];
-				break;
+				st[count]=students[i];
+				count++;
 			}
 			
-		}*/
-		return null;
+		}
+		return st;
+		
 	}
 
 	@Override
 	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
 		// Add your implementation here
-		return null;
+		Student[] st=new Student[this.students.length];
+		int count=0;
+		int n=this.students.length;
+		for(int i=0;i<n;i++){
+			
+			if(students[i].getBirthDate().compareTo(firstDate)>0&&students[i].getBirthDate().compareTo(lastDate)<=0){
+				st[count]=students[i];
+				count++;
+				
+			}
+			
+		}
+		return st;
 	}
 
 	@Override
@@ -225,19 +240,52 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public int getCurrentAgeByDate(int indexOfStudent) {
 		// Add your implementation here
-		return 0;
+		int r=(2017)-(this.students[indexOfStudent].getBirthDate().getYear());
+		return r;
 	}
 
 	@Override
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
-		return null;
+	Student [] st=new Student[this.students.length];
+	int count=0;
+		int n=this.students.length;
+		for(int i=0;i<n;i++){
+			
+			if(2017-(this.students[i].getBirthDate().getYear())==age){
+				
+				st[count]=students[i];
+				count++;
+			}
+			
+		}
+		return st;
+		
 	}
 
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
-		return null;
+		int count=0;
+	Student [] st=new Student[this.students.length];
+		int n=this.students.length;
+		double sum=0.0;
+		for(int i=0;i<n;i++){
+			
+			sum+=this.students[i].getAvgMark();
+			
+		}
+		double avg=sum%n;
+		for(int i=0;i<n;i++){
+			
+			if(this.students[i].getAvgMark()==avg){
+				
+				st[count]=students[i];
+				count++;
+			}
+			
+		}
+		return st;
 	}
 
 	@Override
