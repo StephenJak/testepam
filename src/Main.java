@@ -6,7 +6,7 @@ public class Main {
 		//Please check that your code works and has no 
 		//compilation problems before to submit
 		
-		StudentGroup sg=new StudentGroup(10);
+		
 	}
 
 }
