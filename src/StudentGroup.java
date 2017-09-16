@@ -175,16 +175,21 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
-		/*int n=this.students.length;
+		int a=0;
+		String aa=" ";
+		Date dd=null;
+		Double dou=0.0;
+		int n=this.students.length;
 		for(int i=0;i<n-1;i++)
 			for(int j=0;j<n-i-1;j++)
-				if((this.students[j]).isGreaterThan(this.students[j+1]))
+				if(((this.students[j]).compareTo(this.students[j+1]))>0)
 				{
-                                   Student student= new Student();
+                                  Student student= new Student(a,aa,dd,dou);
 				    student=this.students[i];
 				    this.students[i]=this.students[j];
 		    		    this.students[j]=student;	
-                                 }*/
+                                 }
+			
 		
 		
 	}
